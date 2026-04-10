@@ -4,14 +4,17 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="ARFA Studios | Fotografía Inmobiliaria y Dron en Tarragona">
 	<main>
-    <!-- Header / Nav -->
     <nav class="fixed top-0 w-full z-50 px-8 py-4 flex justify-between items-center bg-black/60 backdrop-blur-lg border-b border-white/10">
-      <div class="flex items-center gap-2">
-        <!-- Isotipo ARFA -->
-        <div class="w-8 h-8 bg-white rounded-sm transform -skew-x-12 flex items-center justify-center font-black text-black italic">A</div>
-        <span class="font-black text-xl tracking-tighter uppercase">ARFA Studios</span>
+      <div class="flex items-center gap-3">
+        <!-- Logo ARFA -->
+        <div class="h-8 w-8 relative">
+           <svg viewBox="0 0 100 100" class="h-full w-full fill-current text-yellow-400">
+             <path d="M20,80 L50,20 L80,80 L65,80 L50,50 L35,80 Z" /> <!-- Simulado, luego pondremos el tuyo real -->
+           </svg>
+        </div>
+        <span class="font-black text-xl tracking-tighter uppercase text-white">ARFA <span class="text-yellow-400">STUDIOS</span></span>
       </div>
-      <a href="#contacto" class="text-sm font-bold uppercase tracking-widest bg-white text-black px-4 py-2 rounded-full hover:bg-yellow-400 transition-colors">Contacto</a>
+      <a href="#contacto" class="text-sm font-bold uppercase tracking-widest bg-yellow-400 text-black px-5 py-2 rounded-full hover:bg-white transition-all duration-300">Contacto</a>
     </nav>
 		
     <!-- Hero Section -->

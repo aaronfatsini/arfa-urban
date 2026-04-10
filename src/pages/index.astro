@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- Header / Nav -->
     <nav class="fixed top-0 w-full z-50 px-8 py-4 flex justify-between items-center bg-black/60 backdrop-blur-lg border-b border-white/10">
       <div class="flex items-center gap-2">
-        <!-- Espacio para el Isotipo -->
+        <!-- Isotipo ARFA -->
         <div class="w-8 h-8 bg-white rounded-sm transform -skew-x-12 flex items-center justify-center font-black text-black italic">A</div>
         <span class="font-black text-xl tracking-tighter uppercase">ARFA Studios</span>
       </div>
@@ -27,7 +27,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="flex flex-col md:flex-row justify-between items-end gap-8">
            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl font-medium leading-tight">
             Deja de hacer scroll. Empieza a vender. <br/>
-            Contenido visual de alto impacto para el sector inmobiliario moderno en Tarragona y alrededores.
+            Contenido visual de alto impacto for the sector inmobiliario moderno en Tarragona y alrededores.
           </p>
           <a href="#contacto" class="group relative inline-block text-3xl font-black uppercase tracking-tighter shrink-0">
             <span class="relative z-10">Contáctanos →</span>
@@ -126,12 +126,16 @@ import Layout from '../layouts/Layout.astro';
                 const index = Math.round(scrollLeft / itemWidth);
                 
                 dots.forEach((dot, i) => {
+                    const slide = slider.children[i];
+                    const img = slide.querySelector('img');
                     if (i === index) {
                         dot.classList.add('w-6', 'bg-white');
-                        dot.classList.remove('w-2', 'bg-white/20');
+                        dot.classList.remove('w-2', 'bg-white/40');
+                        if (img) img.style.filter = 'grayscale(0%)';
                     } else {
-                        dot.classList.add('w-2', 'bg-white/20');
+                        dot.classList.add('w-2', 'bg-white/40');
                         dot.classList.remove('w-6', 'bg-white');
+                        if (img) img.style.filter = 'grayscale(100%)';
                     }
                 });
             };
@@ -276,10 +280,17 @@ import Layout from '../layouts/Layout.astro';
   @media (hover: hover) {
     .portfolio-img {
       filter: grayscale(100%);
+      transition: filter 0.5s ease, transform 0.7s ease;
     }
     .portfolio-item:hover .portfolio-img {
       filter: grayscale(0%);
       transform: scale(1.05);
+    }
+  }
+
+  @media (hover: none) {
+    .portfolio-img {
+      filter: grayscale(0%);
     }
   }
 </style>

@@ -4,14 +4,14 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="ARFA Studios | Fotografía Inmobiliaria y Dron en Tarragona">
 	<main>
-    <!-- Header / Nav Placeholder -->
-    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+    <!-- Header / Nav -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-4 flex justify-between items-center bg-black/60 backdrop-blur-lg border-b border-white/10">
       <div class="flex items-center gap-2">
         <!-- Espacio para el Isotipo -->
         <div class="w-8 h-8 bg-white rounded-sm transform -skew-x-12 flex items-center justify-center font-black text-black italic">A</div>
         <span class="font-black text-xl tracking-tighter uppercase">ARFA Studios</span>
       </div>
-      <a href="#contacto" class="text-sm font-bold uppercase tracking-widest border-b border-white hover:text-yellow-400 hover:border-yellow-400 transition-colors">Contacto</a>
+      <a href="#contacto" class="text-sm font-bold uppercase tracking-widest bg-white text-black px-4 py-2 rounded-full hover:bg-yellow-400 transition-colors">Contacto</a>
     </nav>
 		
     <!-- Hero Section -->
@@ -57,34 +57,42 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- Portfolio: Apple Slider -->
-    <section id="portfolio" class="py-24 overflow-hidden border-b border-white/10">
+    <section id="portfolio" class="py-24 overflow-hidden border-b border-white/10 relative">
         <div class="px-8 md:px-16 mb-12">
             <h2 class="text-4xl font-black uppercase">Nuestro <span class="text-yellow-400">Trabajo</span></h2>
         </div>
 
-        <div class="relative group">
+        <div class="relative group max-w-[1400px] mx-auto">
+            <!-- Navigation Arrows -->
+            <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity hidden md:block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity hidden md:block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
             <!-- Slider Container -->
-            <div id="slider" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 px-[10%] pb-10 cursor-grab active:cursor-grabbing scroll-smooth">
+            <div id="slider" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 px-4 md:px-12 pb-10 cursor-grab active:cursor-grabbing scroll-smooth">
                 
-                <div class="flex-none w-[85vw] md:w-[70vw] snap-center">
+                <div class="flex-none w-full md:w-[85%] snap-center">
                     <div class="relative aspect-video rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Interior Premium" />
                     </div>
                 </div>
 
-                <div class="flex-none w-[85vw] md:w-[70vw] snap-center">
+                <div class="flex-none w-full md:w-[85%] snap-center">
                     <div class="relative aspect-video rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl">
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1600" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Vista Aérea Dron" />
                     </div>
                 </div>
 
-                <div class="flex-none w-[85vw] md:w-[70vw] snap-center">
+                <div class="flex-none w-full md:w-[85%] snap-center">
                     <div class="relative aspect-video rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl">
                         <img src="https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?auto=compress&cs=tinysrgb&w=1600" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Cocina de Diseño" />
                     </div>
                 </div>
 
-                <div class="flex-none w-[85vw] md:w-[70vw] snap-center">
+                <div class="flex-none w-full md:w-[85%] snap-center">
                     <div class="relative aspect-video rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl">
                         <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1600" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Arquitectura Exterior" />
                     </div>
@@ -95,10 +103,10 @@ import Layout from '../layouts/Layout.astro';
             <!-- Apple-style Pagination -->
             <div class="flex justify-center items-center mt-4 gap-4">
                 <div class="bg-white/5 backdrop-blur-md px-4 py-2.5 rounded-full flex items-center gap-3 border border-white/10">
-                    <div class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300" data-index="0"></div>
-                    <div class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300" data-index="1"></div>
-                    <div class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300" data-index="2"></div>
-                    <div class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300" data-index="3"></div>
+                    <button class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300 hover:bg-white/40" data-index="0"></button>
+                    <button class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300 hover:bg-white/40" data-index="1"></button>
+                    <button class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300 hover:bg-white/40" data-index="2"></button>
+                    <button class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300 hover:bg-white/40" data-index="3"></button>
                 </div>
             </div>
         </div>
@@ -107,14 +115,15 @@ import Layout from '../layouts/Layout.astro';
     <script>
         const slider = document.getElementById('slider');
         const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
 
         if (slider && dots.length > 0) {
             const updateDots = () => {
                 const scrollLeft = slider.scrollLeft;
                 const containerWidth = slider.offsetWidth;
-                const scrollWidth = slider.scrollWidth - containerWidth;
-                const progress = scrollLeft / (scrollWidth || 1);
-                const index = Math.round(progress * (dots.length - 1));
+                const itemWidth = slider.querySelector('.flex-none').offsetWidth + 24; // width + gap
+                const index = Math.round(scrollLeft / itemWidth);
                 
                 dots.forEach((dot, i) => {
                     if (i === index) {
@@ -127,6 +136,39 @@ import Layout from '../layouts/Layout.astro';
                 });
             };
 
+            // Click en puntos para navegar
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const itemWidth = slider.querySelector('.flex-none').offsetWidth + 24;
+                    slider.scrollTo({ left: index * itemWidth, behavior: 'smooth' });
+                });
+            });
+
+            // Botones de navegación
+            nextBtn.addEventListener('click', () => {
+                const itemWidth = slider.querySelector('.flex-none').offsetWidth + 24;
+                slider.scrollBy({ left: itemWidth, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const itemWidth = slider.querySelector('.flex-none').offsetWidth + 24;
+                slider.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+            });
+
+            // Autoplay funcional
+            let autoplay = setInterval(() => {
+                const itemWidth = slider.querySelector('.flex-none').offsetWidth + 24;
+                if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) {
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: itemWidth, behavior: 'smooth' });
+                }
+            }, 5000);
+
+            // Detener autoplay al interactuar
+            slider.addEventListener('mousedown', () => clearInterval(autoplay));
+            slider.addEventListener('touchstart', () => clearInterval(autoplay));
+
             // Soporte para drag con ratón
             let isDown = false;
             let startX;
@@ -134,16 +176,23 @@ import Layout from '../layouts/Layout.astro';
 
             slider.addEventListener('mousedown', (e) => {
                 isDown = true;
+                slider.style.cursor = 'grabbing';
                 startX = e.pageX - slider.offsetLeft;
                 sLeft = slider.scrollLeft;
             });
-            slider.addEventListener('mouseleave', () => isDown = false);
-            slider.addEventListener('mouseup', () => isDown = false);
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+            });
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+            });
             slider.addEventListener('mousemove', (e) => {
                 if(!isDown) return;
                 e.preventDefault();
                 const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 2;
+                const walk = (x - startX) * 1.5;
                 slider.scrollLeft = sLeft - walk;
             });
 

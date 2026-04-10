@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Bold Visual Solutions">
+	<main>
+		
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col justify-end p-8 md:p-16 border-b border-white/10">
+      <div class="animate-slide-up">
+        <h2 class="text-xl font-bold tracking-tighter text-yellow-400 mb-4">// ARFA STUDIOS</h2>
+        <h1 class="text-7xl md:text-[10rem] font-black leading-[0.85] tracking-tighter mb-12 uppercase">
+          Kill <br/>The <br/>Ordinary.
+        </h1>
+        <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+           <p class="text-xl md:text-2xl text-gray-400 max-w-xl font-medium leading-tight">
+            Stop scrolling. Start selling. High-impact visual assets for modern real estate.
+          </p>
+          <a href="#contacto" class="group relative inline-block text-3xl font-black uppercase tracking-tighter">
+            <span class="relative z-10">Get in touch →</span>
+            <div class="absolute bottom-0 left-0 w-full h-4 bg-yellow-400/30 group-hover:h-full transition-all duration-300 -z-0"></div>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Services: Industrial Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 border-b border-white/10">
+        <div class="p-8 md:p-16 border-b md:border-b-0 md:border-r border-white/10 hover:bg-white/[0.02] transition-colors group">
+            <span class="text-6xl font-black text-white/10 group-hover:text-yellow-400/20 transition-colors">01</span>
+            <h3 class="text-4xl font-black uppercase mt-4 mb-6">Essential Pack</h3>
+            <ul class="space-y-3 text-gray-400 text-lg mb-8">
+                <li>+ 15 High-res Photos</li>
+                <li>+ Professional Retouching</li>
+                <li>+ 48h Turnaround</li>
+            </ul>
+            <div class="text-5xl font-black">€150</div>
+        </div>
+        <div class="p-8 md:p-16 hover:bg-white/[0.02] transition-colors group">
+            <span class="text-6xl font-black text-white/10 group-hover:text-yellow-400/20 transition-colors">02</span>
+            <h3 class="text-4xl font-black uppercase mt-4 mb-6">Full Power</h3>
+            <ul class="space-y-3 text-gray-400 text-lg mb-8">
+                <li>+ Photo & Exterior</li>
+                <li>+ 5 FPV Drone Shots</li>
+                <li>+ 60s Social Reel</li>
+            </ul>
+            <div class="text-5xl font-black text-yellow-400">€200</div>
+        </div>
+    </section>
+
+    <!-- Brutalist Gallery -->
+    <section id="portfolio" class="p-4 md:p-8">
+        <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000" class="rounded-lg hover:grayscale-0 grayscale transition-all duration-500" alt="Work" />
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000" class="rounded-lg hover:grayscale-0 grayscale transition-all duration-500" alt="Work" />
+            <img src="https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?auto=compress&cs=tinysrgb&w=1000" class="rounded-lg hover:grayscale-0 grayscale transition-all duration-500" alt="Work" />
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000" class="rounded-lg hover:grayscale-0 grayscale transition-all duration-500" alt="Work" />
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contacto" class="bg-yellow-400 text-black p-8 md:p-24 text-center">
+        <h2 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 italic">Let's work.</h2>
+        <a href="#" class="text-2xl md:text-4xl font-bold border-b-4 border-black hover:bg-black hover:text-white transition-all px-4 py-2">WHATSAPP US</a>
+        <p class="mt-16 font-bold uppercase tracking-widest text-sm">© 2026 ARFA STUDIOS / NO LIMITS</p>
+    </footer>
+
+	</main>
+</Layout>
+
+<style>
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-up {
+    animation: slide-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>

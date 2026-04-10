@@ -56,23 +56,102 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- Portfolio: Robust Grid -->
-    <section id="portfolio" class="p-4 md:p-8 border-b border-white/10">
-        <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            <div class="portfolio-item overflow-hidden rounded-xl bg-zinc-900 aspect-video md:aspect-square">
-              <img src="https://images.unsplash.com/photo-1600607687940-4e524cb35d3a?auto=format&fit=crop&q=80&w=1000" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Vista Aérea" />
+    <!-- Portfolio: Apple Slider -->
+    <section id="portfolio" class="py-24 overflow-hidden border-b border-white/10">
+        <div class="px-8 md:px-16 mb-12">
+            <h2 class="text-4xl font-black uppercase">Nuestro <span class="text-yellow-400">Trabajo</span></h2>
+        </div>
+
+        <div class="relative group">
+            <!-- Slider Container -->
+            <div id="slider" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 px-[10%] pb-10 cursor-grab active:cursor-grabbing scroll-smooth">
+                
+                <div class="flex-none w-[85vw] md:w-[70vw] snap-center">
+                    <div class="relative aspect-video rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Interior Premium" />
+                    </div>
+                </div>
+
+                <div class="flex-none w-[85vw] md:w-[70vw] snap-center">
+                    <div class="relative aspect-video rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1600" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Vista Aérea Dron" />
+                    </div>
+                </div>
+
+                <div class="flex-none w-[85vw] md:w-[70vw] snap-center">
+                    <div class="relative aspect-video rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl">
+                        <img src="https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?auto=compress&cs=tinysrgb&w=1600" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Cocina de Diseño" />
+                    </div>
+                </div>
+
+                <div class="flex-none w-[85vw] md:w-[70vw] snap-center">
+                    <div class="relative aspect-video rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1600" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Arquitectura Exterior" />
+                    </div>
+                </div>
+
             </div>
-            <div class="portfolio-item overflow-hidden rounded-xl bg-zinc-900 aspect-square">
-              <img src="https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?auto=compress&cs=tinysrgb&w=1000" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Interior" />
-            </div>
-            <div class="portfolio-item overflow-hidden rounded-xl bg-zinc-900 aspect-[4/5]">
-              <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Propiedad de Lujo" />
-            </div>
-            <div class="portfolio-item overflow-hidden rounded-xl bg-zinc-900 aspect-video">
-               <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000" class="portfolio-img w-full h-full object-cover transition-all duration-700" alt="Salón Moderno" />
+
+            <!-- Apple-style Pagination -->
+            <div class="flex justify-center items-center mt-4 gap-4">
+                <div class="bg-white/5 backdrop-blur-md px-4 py-2.5 rounded-full flex items-center gap-3 border border-white/10">
+                    <div class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300" data-index="0"></div>
+                    <div class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300" data-index="1"></div>
+                    <div class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300" data-index="2"></div>
+                    <div class="dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300" data-index="3"></div>
+                </div>
             </div>
         </div>
     </section>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const dots = document.querySelectorAll('.dot');
+
+        if (slider && dots.length > 0) {
+            const updateDots = () => {
+                const scrollLeft = slider.scrollLeft;
+                const containerWidth = slider.offsetWidth;
+                const scrollWidth = slider.scrollWidth - containerWidth;
+                const progress = scrollLeft / (scrollWidth || 1);
+                const index = Math.round(progress * (dots.length - 1));
+                
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('w-6', 'bg-white');
+                        dot.classList.remove('w-2', 'bg-white/20');
+                    } else {
+                        dot.classList.add('w-2', 'bg-white/20');
+                        dot.classList.remove('w-6', 'bg-white');
+                    }
+                });
+            };
+
+            // Soporte para drag con ratón
+            let isDown = false;
+            let startX;
+            let sLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - slider.offsetLeft;
+                sLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => isDown = false);
+            slider.addEventListener('mouseup', () => isDown = false);
+            slider.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2;
+                slider.scrollLeft = sLeft - walk;
+            });
+
+            slider.addEventListener('scroll', updateDots);
+            window.addEventListener('resize', updateDots);
+            updateDots();
+        }
+    </script>
 
     <!-- Services: Industrial Grid -->
     <section class="grid grid-cols-1 md:grid-cols-2 border-b border-white/10">

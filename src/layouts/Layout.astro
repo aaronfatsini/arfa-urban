@@ -16,22 +16,46 @@ const { title } = Astro.props;
     <link rel="icon" type="image/png" href="/favicon-rounded.png" />
     <link rel="apple-touch-icon" href="/favicon-rounded.png" />
 		<meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Fotografía inmobiliaria profesional, vídeo 4K y dron legal para inmobiliarias y alquiler vacacional. Entrega en 48 h. Tarragona y alrededores." />
-		<title>{title}</title>
+		<meta name="description" content="Fotografía inmobiliaria profesional, vídeo 4K y dron legal para el sector inmobiliario. Entrega en 48 h en Tarragona, Costa Daurada y alrededores." />
+		<title>{title || "ARFA Studios | Fotografía y vídeo inmobiliario en Tarragona"}</title>
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.arfastudios.com/" />
-    <meta property="og:title" content="ARFA Studios | Fotografía Inmobiliaria en Tarragona" />
-    <meta property="og:description" content="Fotografía inmobiliaria profesional, vídeo 4K y dron legal para inmobiliarias y alquiler vacacional. Entrega en 48 h. Tarragona y alrededores." />
-    <meta property="og:image" content="https://www.arfastudios.com/favicon-rounded.png" />
+    <meta property="og:site_name" content="ARFA Studios" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:title" content={title || "ARFA Studios | Fotografía y vídeo inmobiliario en Tarragona"} />
+    <meta property="og:description" content="Fotografía inmobiliaria profesional, vídeo 4K y dron legal para el sector inmobiliario. Entrega en 48 h en Tarragona, Costa Daurada y alrededores." />
+    <meta property="og:image" content="/favicon-rounded.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.arfastudios.com/" />
-    <meta property="twitter:title" content="ARFA Studios | Fotografía Inmobiliaria en Tarragona" />
-    <meta property="twitter:description" content="Fotografía inmobiliaria profesional, vídeo 4K y dron legal para inmobiliarias y alquiler vacacional. Entrega en 48 h. Tarragona y alrededores." />
-    <meta property="twitter:image" content="https://www.arfastudios.com/favicon-rounded.png" />
+    <meta property="twitter:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="twitter:title" content={title || "ARFA Studios | Fotografía y vídeo inmobiliario en Tarragona"} />
+    <meta property="twitter:description" content="Fotografía inmobiliaria profesional, vídeo 4K y dron legal para el sector inmobiliario. Entrega en 48 h en Tarragona, Costa Daurada y alrededores." />
+    <meta property="twitter:image" content="/favicon-rounded.png" />
+
+    <!-- Schema JSON-LD -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "ARFA Studios",
+        "url": "https://www.arfastudios.com",
+        "image": "https://www.arfastudios.com/favicon-rounded.png",
+        "areaServed": ["Tarragona", "Costa Daurada", "Delta del Ebro", "Vinaròs"],
+        "description": "Fotografía inmobiliaria profesional, vídeo 4K y dron legal.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios inmobiliarios",
+          "itemListElement": [
+            { "@type": "Service", "name": "fotografía inmobiliaria" },
+            { "@type": "Service", "name": "vídeo 4K" },
+            { "@type": "Service", "name": "dron legal" }
+          ]
+        }
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

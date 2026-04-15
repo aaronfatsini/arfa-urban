@@ -11,6 +11,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  site: 'https://arfastudios.com',
+  site: 'https://www.arfastudios.com',
   integrations: [sitemap()]
 });

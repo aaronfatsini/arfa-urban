@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arfastudios.com/sitemap-index.xml
+Sitemap: https://www.arfastudios.com/sitemap-index.xml
